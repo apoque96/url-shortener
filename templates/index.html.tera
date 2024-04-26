@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Url shortener</h1>
-    <form action="/upload_url" method="POST">
+    <form action="/upload_url" method="get">
       <label for="long_url">Paste the long url</label>
       <input
         type="text"
@@ -22,6 +22,7 @@
 
       <div>{{ long_url }}</div>
       <div>{{ short_url }}</div>
+      <div id="valid_url">{{ valid }}</div>
     </form>
   </body>
 </html>
