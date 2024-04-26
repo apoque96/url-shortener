@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title>Url Shortener</title>
+  </head>
+  <body>
+    <h1>Url shortener</h1>
+    <form action="/upload_url" method="POST">
+      <label for="long_url">Paste the long url</label>
+      <input
+        type="text"
+        id="long_url"
+        name="long_url"
+        placeholder="http://example.com"
+        required
+      />
+
+      <button type="submit">Submit</button>
+
+      <div>{{ long_url }}</div>
+      <div>{{ short_url }}</div>
+    </form>
+  </body>
+</html>
