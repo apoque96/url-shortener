@@ -27,11 +27,11 @@
         <div class="urls">
           <span>
             <h3>Long url</h3>
-            <a href="{{ long_url }}" id="long">{{ long_url }}</a>
+            <a href="/redirect/{{ long_url }}" id="long">{{ long_url }}</a>
           </span>
           <span>
             <h3>Short url</h3>
-            <a href="{{ short_url }}" id="short">{{ short_url }}</a>
+            <a href="/redirect/{{ short_url }}" id="short">{{ short_url }}</a>
           </span>
         </div>
 
