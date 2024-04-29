@@ -75,3 +75,13 @@ pub fn new_url(long_url: String, state: &State<Mutex<UrlStruct>>) -> Redirect {
 
     Redirect::to(uri!(index))
 }
+
+#[get("/redirect/<short_url>")]
+pub fn redirect(short_url: String, state: &State<Mutex<UrlStruct>>) -> Redirect {
+    let url = state.inner().lock().unwrap();
+    if url.short_url == short_url {
+        return Redirect::to(url.long_url.clone());
+    }
+
+    Redirect::to(uri!(index))
+}
