@@ -7,22 +7,37 @@
     <title>Url Shortener</title>
   </head>
   <body>
-    <h1>Url shortener</h1>
-    <form action="/upload_url" method="get">
-      <label for="long_url">Paste the long url</label>
-      <input
-        type="text"
-        id="long_url"
-        name="long_url"
-        placeholder="http://example.com"
-        required
-      />
+    <header>
+      <h1>Url shortener</h1>
+    </header>
+    <div class="container">
+      <form action="/upload_url" method="get">
+        <label for="long_url">Paste the long url</label>
+        <input
+          type="text"
+          id="long_url"
+          name="long_url"
+          placeholder="http://example.com"
+          required
+        />
 
-      <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
 
-      <div>{{ long_url }}</div>
-      <div>{{ short_url }}</div>
-      <div id="valid_url">{{ valid }}</div>
-    </form>
+        <br />
+        <div class="urls">
+          <span>
+            <h3>Long url</h3>
+            <a href="{{ long_url }}" id="long">{{ long_url }}</a>
+          </span>
+          <span>
+            <h3>Short url</h3>
+            <a href="{{ short_url }}" id="short">{{ short_url }}</a>
+          </span>
+        </div>
+
+        <div id="valid_url" class="hidden">{{ valid }}</div>
+      </form>
+    </div>
+    <script src="/script.js"></script>
   </body>
 </html>

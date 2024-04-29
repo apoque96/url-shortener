@@ -47,15 +47,17 @@ fn hash(value: &str) -> String {
 
 #[get("/")]
 pub fn index(state: &State<Mutex<UrlStruct>>) -> Template {
-    let url = state.inner().lock().unwrap();
-    Template::render(
+    let mut url = state.inner().lock().unwrap();
+    let render = Template::render(
         "index",
         context![
             long_url: &url.long_url,
             short_url: &url.short_url,
-            valid: &url.valid,
+            valid: &url.valid.clone(),
         ],
-    )
+    );
+    url.valid = true;
+    render
 }
 
 #[get("/upload_url?<long_url>")]
